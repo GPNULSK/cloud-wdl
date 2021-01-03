@@ -10,67 +10,12 @@
   <sql id="Base_Column_List">
     pid, product_name, product_desc, inventory
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_products
-    where pid = #{pid,jdbcType=INTEGER}
+
+  <update id="sellProduct" parameterType="com.lsk.domain.Products">
+    update t_products set inventory = #{inventory} where pid = #{pid}
+  </update>
+
+  <select id="findById" parameterType="int" resultMap="BaseResultMap">
+    select * from t_products where pid = #{pid}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_products
-    where pid = #{pid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" keyColumn="pid" keyProperty="pid" parameterType="com.lsk.domain.Products" useGeneratedKeys="true">
-    insert into t_products (product_name, product_desc, inventory
-      )
-    values (#{productName,jdbcType=VARCHAR}, #{productDesc,jdbcType=VARCHAR}, #{inventory,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" keyColumn="pid" keyProperty="pid" parameterType="com.lsk.domain.Products" useGeneratedKeys="true">
-    insert into t_products
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="productName != null">
-        product_name,
-      </if>
-      <if test="productDesc != null">
-        product_desc,
-      </if>
-      <if test="inventory != null">
-        inventory,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="productName != null">
-        #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="productDesc != null">
-        #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="inventory != null">
-        #{inventory,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lsk.domain.Products">
-    update t_products
-    <set>
-      <if test="productName != null">
-        product_name = #{productName,jdbcType=VARCHAR},
-      </if>
-      <if test="productDesc != null">
-        product_desc = #{productDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="inventory != null">
-        inventory = #{inventory,jdbcType=INTEGER},
-      </if>
-    </set>
-    where pid = #{pid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lsk.domain.Products">
-    update t_products
-    set product_name = #{productName,jdbcType=VARCHAR},
-      product_desc = #{productDesc,jdbcType=VARCHAR},
-      inventory = #{inventory,jdbcType=INTEGER}
-    where pid = #{pid,jdbcType=INTEGER}
-  </update>
 </mapper>

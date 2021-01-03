@@ -2,14 +2,12 @@ package com.lsk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@EnableEurekaClient
 @SpringBootApplication
-public class ProviderProduct8081Application {
+public class ConsoleOrder8083Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProviderProduct8081Application.class, args);
+        SpringApplication.run(ConsoleOrder8083Application.class, args);
     }
 
 }

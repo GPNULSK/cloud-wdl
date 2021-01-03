@@ -1,17 +1,12 @@
 package com.lsk.mappers;
 
 import com.lsk.domain.Products;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface ProductsMapper {
-    int deleteByPrimaryKey(Integer pid);
 
-    int insert(Products record);
+    void sellProduct(Products products);
 
-    int insertSelective(Products record);
-
-    Products selectByPrimaryKey(Integer pid);
-
-    int updateByPrimaryKeySelective(Products record);
-
-    int updateByPrimaryKey(Products record);
+    Products findById(int id);
 }
