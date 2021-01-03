@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lsk.mappers.OrderDao">
+  <resultMap id="BaseResultMap" type="com.lsk.domain.Order">
+    <id column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="ruuid" jdbcType="VARCHAR" property="ruuid" />
+    <result column="product_name" jdbcType="VARCHAR" property="produceName" />
+    <result column="account" jdbcType="INTEGER" property="account" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    rid, `uid`, ruuid, produce_name, account
+  </sql>
+
+
+<insert id="createOrder" parameterType="com.lsk.domain.Order" >
+  insert into t_order values (#{uid},#{ruuid},#{produceName},#{account})
+</insert>
+
+</mapper>
