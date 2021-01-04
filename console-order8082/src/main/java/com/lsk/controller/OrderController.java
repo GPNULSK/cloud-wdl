@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 继承公共项目的openFeign接口，当然这也是一个controller
+ */
 @RestController
 public class OrderController {
 
