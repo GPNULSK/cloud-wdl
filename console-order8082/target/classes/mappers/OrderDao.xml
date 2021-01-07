@@ -14,7 +14,7 @@
 
 
 <insert id="createOrder" parameterType="com.lsk.domain.Order" >
-  insert into t_order values (#{uid},#{ruuid},#{produceName},#{account})
+  insert into t_order (uid,ruuid,produce_name,account) values (#{uid},#{ruuid},#{produceName},#{account})
 </insert>
 
 </mapper>
